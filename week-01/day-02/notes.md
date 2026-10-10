@@ -7,10 +7,9 @@
 ## 5. Mistakes I made today and what I learned
 ## 6. LeetCode: 1480 and 1672 - my approach in plain words + dry run
 
-
-1. it's look like working on photocopy  so original file keeps safe 
-2. i got less understanding and when i will work on daily i will get to learn more 
-3. same line edited differently
-4. the msg is on MD's desk before going in main file 
-5. i got distracted and by typing fast i forgot the spelling mistake
-6. loop where customers get totals like ->  6,10.8
+## 1.Branch 
+It's look like working on photocopy  so original file keeps safe 
+## 2.Merge Conflict
+Same line edited differently
+## 3.Pull Request (PR)
+The msg is on MD's desk before going in main file 
