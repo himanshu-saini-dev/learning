@@ -21,7 +21,7 @@
 
 ## 4. My Postman results
 - A. GET /users/1 → 200 OK, because user exists and was successfully fetched
-- B. GET /users/9999 → 404 Not Found, because because user does not exist in the database
+- B. GET /users/9999 → 404 Not Found, because user does not exist in the database
 - C. POST /posts → 201 Created, because the new post was successfully created and saved
 - D. DELETE /posts/1 → 200 OK, because the post was successfully deleted
 
