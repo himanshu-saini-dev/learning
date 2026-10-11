@@ -6,15 +6,18 @@ function getFeeStatus(rollNo) {
       } else {
         reject(`Roll ${rollNo}: not found`);
       }
-    }, 500);
+    }, 1000);
   });
 }
 
+console.time("E4-Timer");
+
 Promise.all([getFeeStatus(1), getFeeStatus(2), getFeeStatus(3)])
-  .then((data) => {
-    console.log("All Results:", data);
-   
+  .then((results) => {
+    console.log("Results:", results);
+    console.timeEnd("E4-Timer"); // Output: ~1000ms
   })
   .catch((err) => {
     console.log("Error:", err);
+    console.timeEnd("E4-Timer");
   });
