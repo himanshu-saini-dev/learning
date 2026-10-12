@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <h1>Fee Counter</h1>
+   <form id="fee-form">
+        <input type="number" id="amount-input" placeholder="Enter fee amount" min="1" required>
+    <button type="submit">Add</button>
+    </form>
+<p id="total">Total: ₹0</p>
+<ul id="payments"></ul>
+<button id="reset-btn" type="button">Reset</button>
+</body>
+</html>
