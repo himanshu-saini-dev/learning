@@ -16,40 +16,45 @@ function render() {
   payments.forEach((item) => {
     const li = document.createElement("li");
     li.dataset.id = item.id;
-    li.innerHTML = `<span>₹${item.amount}</span> <span class="del-btn">✕ Click to delete</span>`;
+
+    // fix 1: createElement + textContent instead of innerHTML
+    const amountSpan = document.createElement("span");
+    amountSpan.textContent = `₹${item.amount}`;
+
+    const delSpan = document.createElement("span");
+    delSpan.className = "del-btn";
+    delSpan.style.color = "red";
+    delSpan.style.cursor = "pointer";
+    delSpan.textContent = "✕ Delete";
+
+    li.append(amountSpan, delSpan);
     box.append(li);
   });
   paymentsList.append(box);
 
   localStorage.setItem("fee_payments", JSON.stringify(payments));
 }
-console.log({ form, resetBtn, paymentsList, amountInput, totalEl });
+
+// form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const amount = Number(amountInput.value);
-
   if (!amount || amount <= 0) return;
 
-  const newPayment = {
-    id: Date.now(),
-    amount: amount,
-  };
-  payments.push(newPayment);
+  payments.push({ id: Date.now(), amount });
   render();
-
   form.reset();
   amountInput.focus();
 });
 
 paymentsList.addEventListener("click", (e) => {
+  if (!e.target.closest(".del-btn")) return;
+
   const li = e.target.closest("li");
   if (!li) return;
 
   const idToDelete = Number(li.dataset.id);
-
   payments = payments.filter((item) => item.id !== idToDelete);
-
   render();
 });
 
